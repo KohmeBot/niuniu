@@ -20,7 +20,7 @@ type NiuNiu struct {
 	Length float64
 	// 硬度
 	Hardness float64
-	// 灵活度
+	// 弹性
 	Flexibility float64
 	// 幸运值
 	Luck float64
@@ -80,7 +80,7 @@ func (n *NiuNiu) Entity() *NiuNiuEntity {
 func (n *NiuNiu) String() string {
 	var builder strings.Builder
 	builder.WriteString("-----牛牛属性-----\n")
-	builder.WriteString(fmt.Sprintf("名称：%s\n长度：%.2f\n硬度：%.2f\n灵活度：%.2f\n幸运值：%.2f\n",
+	builder.WriteString(fmt.Sprintf("名称：%s\n长度：%.2f\n硬度：%.2f\n弹性：%.2f\n幸运值：%.2f\n",
 		n.Name, n.Length, n.Hardness, n.Flexibility, n.Luck))
 	builder.WriteString("-----拥有的技能-----\n")
 	for _, s := range n.Skills {

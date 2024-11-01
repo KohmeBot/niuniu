@@ -1,5 +1,7 @@
 package event
 
+import "strings"
+
 type Event interface {
 	String() string
 }
@@ -20,5 +22,5 @@ func (e EndEvent) String() string {
 type TextEvent string
 
 func (e TextEvent) String() string {
-	return string(e)
+	return strings.TrimSpace(string(e))
 }

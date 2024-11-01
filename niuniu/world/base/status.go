@@ -22,6 +22,9 @@ type HP struct {
 
 // Hit 攻击
 func (h *HP) Hit(damage float64) {
+	if damage <= 0 {
+		return
+	}
 	h.HP -= damage
 }
 
@@ -59,6 +62,15 @@ func (s *Status) HitCriticalDamage(damage float64) float64 {
 
 // HitDefense 伤害减免/判定防御
 func (s *Status) HitDefense(damage float64) float64 {
+	if damage <= 0 {
+		return 0
+	}
 	// TODO 可以根据幸运值加成
 	return damage - s.Defense
+}
+
+// WithLuck 将一个概率提供幸运值加成
+func (s *Status) WithLuck(f float64) float64 {
+	// TODO 幸运值加成
+	return f
 }
